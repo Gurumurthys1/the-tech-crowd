@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep shared site chrome in the TanStack root layout and place each public content page in its own file-based route, so navigation and page metadata stay consistent.
