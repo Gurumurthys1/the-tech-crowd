@@ -28,7 +28,7 @@ const focusAreas = [
 ];
 
 function HomePage() {
-  const featured = events.find((event) => event.id === "build-01");
+  const featured = events.find((event) => event.id === "novylt-1");
 
   return (
     <main>
@@ -69,8 +69,28 @@ function HomePage() {
         <div className="site-container">
           <div className="section-heading"><div><PageEyebrow>UP NEXT</PageEyebrow><h2>Make something real.</h2></div><Link className="text-link" to="/events">All events <ArrowRight /></Link></div>
           <div className="event-feature">
-            <div className="event-poster" aria-label="BUILD 01 event artwork"><div className="poster-content"><div className="poster-kicker">THE TECH CROWD PRESENTS</div><div className="poster-title">BUILD<br />01</div><div className="poster-caption">IDEAS INTO IMPACT · ONLINE HACKATHON</div></div></div>
-            <div className="event-feature-copy"><span className="status-badge">Upcoming</span><h3>{featured.title}</h3><p>{featured.description}</p><div className="event-facts"><span><Wifi /> Online</span><span>Date to be announced</span></div><Button asChild className="site-cta"><Link to="/events/$slug" params={{ slug: featured.slug }}>View event <ArrowRight /></Link></Button></div>
+            <div className="event-poster" aria-label="NOVYLT 1.0 event artwork"><div className="poster-content"><div className="poster-kicker">THE TECH CROWD PRESENTS</div><div className="poster-title">NOVYLT<br />1.0</div><div className="poster-caption">BUILD BEYOND IDEAS · ONLINE HACKATHON</div></div></div>
+            <div className="event-feature-copy">
+              <span className="status-badge">Upcoming</span>
+              <h3>{featured.title}</h3>
+              <p>{featured.description}</p>
+              <div className="event-facts">
+                <span><Wifi /> Online</span>
+                <span>{featured.date}</span>
+                {featured.fee && <span>{featured.fee}</span>}
+                {featured.prizePool && <span>Prize pool: {featured.prizePool}</span>}
+              </div>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 16 }}>
+                {featured.registerUrl && (
+                  <Button asChild className="site-cta">
+                    <a href={featured.registerUrl} target="_blank" rel="noreferrer">Register on Unstop <ArrowRight /></a>
+                  </Button>
+                )}
+                <Button asChild variant="outline" className="site-outline">
+                  <Link to="/events/$slug" params={{ slug: featured.slug }}>View event details <ArrowRight /></Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section> : null}

@@ -1,26 +1,46 @@
-# Crowd Vision Connect
+# The Tech Crowd
 
-Implement exactly the screenshot and nothing else
+A student-driven technology community for building, learning, and creating meaningful solutions together.
 
-This project was built with [Lovable](https://lovable.dev).
+## Stack
 
-**Live app**: https://crowd-vision-connect.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/921eb85c-3584-45a4-9ec6-d3612cd1ef83).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- [TanStack Start](https://tanstack.com/start) — full-stack React framework
+- [TanStack Router](https://tanstack.com/router) — type-safe file-based routing
+- [Tailwind CSS v4](https://tailwindcss.com/) — utility-first styling
+- [shadcn/ui](https://ui.shadcn.com/) — accessible component primitives
+- [Vite](https://vite.dev/) — fast dev server & bundler
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need Node.js (v18+) and npm.
 
 ```sh
 git clone <this-repository-url>
-cd <repository-name>
-npm i
+cd the-tech-crowd
+npm install --legacy-peer-deps
 npm run dev
 ```
+
+The app runs at **http://localhost:5173**.
+
+## Project Structure
+
+```
+src/
+  routes/        # File-based pages (__root.tsx is the shared layout)
+  components/    # Shared UI components (site.tsx = header/footer/cards)
+  data/          # Static data (events, etc.)
+  lib/           # Utilities
+  styles.css     # Global styles & design tokens
+```
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start local dev server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+| `npm run format` | Run Prettier |
+| `npm test` | Run tests |
