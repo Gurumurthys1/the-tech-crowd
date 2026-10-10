@@ -45,5 +45,18 @@ export function PageIntro({ eyebrow, title, description }: { eyebrow: string; ti
 }
 
 export function EventCard({ event }: { event: CommunityEvent }) {
+  if (event.registerUrl) {
+    return (
+      <a className="event-card" href={event.registerUrl} target="_blank" rel="noreferrer">
+        <div className="event-card-art"><strong>{event.id === "novylt-1" ? "NOVYLT 1.0" : event.title}</strong></div>
+        <div className="event-card-body">
+          <div className="event-card-meta"><span>{event.category}</span><span>{event.status === "upcoming" ? "Upcoming" : "Completed"}</span></div>
+          <h3>{event.title}</h3>
+          <p>{event.description}</p>
+          <span className="text-link">{event.status === "upcoming" ? "Register now" : "View highlights"} <ArrowRight /></span>
+        </div>
+      </a>
+    );
+  }
   return <Link className="event-card" to="/events/$slug" params={{ slug: event.slug }}><div className="event-card-art"><strong>{event.id === "build-01" ? "BUILD 01" : event.title}</strong></div><div className="event-card-body"><div className="event-card-meta"><span>{event.category}</span><span>{event.status === "upcoming" ? "Upcoming" : "Completed"}</span></div><h3>{event.title}</h3><p>{event.description}</p><span className="text-link">{event.status === "upcoming" ? "View event" : "View highlights"} <ArrowRight /></span></div></Link>;
 }
