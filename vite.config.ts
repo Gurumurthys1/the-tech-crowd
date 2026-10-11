@@ -13,6 +13,11 @@ export default defineConfig({
     tailwindcss(),
     tanstackStart({
       server: { entry: "src/server.ts" },
+      // Use Vercel preset when NITRO_PRESET env is set (on Vercel),
+      // otherwise fall back to "node" for local dev / other hosts.
+      nitro: {
+        preset: process.env.VERCEL ? "vercel" : "node",
+      },
     }),
     react(),
   ],
